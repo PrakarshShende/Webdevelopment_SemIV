@@ -1,0 +1,226 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Employee Registration</title>
+
+<style>
+    body {
+        margin: 0;
+        font-family: 'Segoe UI', sans-serif;
+        background: linear-gradient(135deg, #0d1117, #1f2937);
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        min-height: 100vh;
+        color: #e6edf3;
+    }
+
+    .container {
+        width: 520px;
+        background: #161b22;
+        padding: 30px;
+        border-radius: 15px;
+        box-shadow: 0 20px 60px rgba(0,0,0,0.6);
+    }
+
+    h2 {
+        text-align: center;
+        margin-bottom: 10px;
+        background: linear-gradient(90deg, #58a6ff, #a855f7);
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+    }
+
+    .section-title {
+        margin-top: 15px;
+        font-size: 14px;
+        color: #58a6ff;
+    }
+
+    label {
+        display: block;
+        margin-top: 10px;
+        font-size: 13px;
+        color: #c9d1d9;
+    }
+
+    input, select, textarea {
+        width: 100%;
+        padding: 10px;
+        margin-top: 5px;
+        border-radius: 8px;
+        border: 1px solid #30363d;
+        background: #0d1117;
+        color: #e6edf3;
+        outline: none;
+        transition: 0.3s;
+    }
+
+    input:focus, select:focus, textarea:focus {
+        border-color: #a855f7;
+        box-shadow: 0 0 10px #58a6ff;
+    }
+
+    .row {
+        display: flex;
+        gap: 15px;
+    }
+
+    .input-group {
+        flex: 1;
+    }
+
+    /* Stylish options */
+    .option-group {
+        display: flex;
+        gap: 10px;
+        flex-wrap: wrap;
+        margin-top: 5px;
+    }
+
+    .option-group input {
+        display: none;
+    }
+
+    .option-group label {
+        padding: 6px 12px;
+        border-radius: 20px;
+        border: 1px solid #444;
+        cursor: pointer;
+        font-size: 13px;
+        transition: 0.3s;
+    }
+
+    .option-group input:checked + label {
+        background: linear-gradient(90deg, #58a6ff, #a855f7);
+        border: none;
+        color: white;
+        box-shadow: 0 0 10px #58a6ff;
+    }
+
+    /* Buttons */
+    .btn-group {
+        display: flex;
+        gap: 10px;
+        margin-top: 25px;
+    }
+
+    button {
+        flex: 1;
+        padding: 12px;
+        border-radius: 10px;
+        border: none;
+        font-size: 15px;
+        cursor: pointer;
+        transition: 0.3s;
+    }
+
+    .primary {
+        background: linear-gradient(90deg, #58a6ff, #a855f7);
+        color: white;
+    }
+
+    .primary:hover {
+        transform: translateY(-2px);
+        box-shadow: 0 5px 20px rgba(88,166,255,0.5);
+    }
+
+    .secondary {
+        background: transparent;
+        border: 1px solid #444;
+        color: #c9d1d9;
+    }
+
+    .secondary:hover {
+        border-color: #58a6ff;
+        color: #58a6ff;
+    }
+
+    @media (max-width: 600px) {
+        .row {
+            flex-direction: column;
+        }
+    }
+
+</style>
+</head>
+
+<body>
+
+<div class="container">
+    <h2>Employee Registration</h2>
+
+    <form>
+
+        <div class="section-title">Personal Info</div>
+
+        <div class="row">
+            <div class="input-group">
+                <label>First Name</label>
+                <input type="text" placeholder="First Name">
+            </div>
+            <div class="input-group">
+                <label>Last Name</label>
+                <input type="text" placeholder="Last Name">
+            </div>
+        </div>
+
+        <label>Email</label>
+        <input type="email" placeholder="Enter Email">
+
+        <label>Phone</label>
+        <input type="tel" placeholder="Enter Phone">
+
+        <div class="section-title">Job Details</div>
+
+        <label>Employee ID</label>
+        <input type="text" placeholder="Enter ID">
+
+        <label>Department</label>
+        <select>
+            <option>Select Department</option>
+            <option>HR</option>
+            <option>IT</option>
+            <option>Finance</option>
+            <option>Marketing</option>
+        </select>
+
+        <label>Position</label>
+        <input type="text" placeholder="Job Title">
+
+        <div class="section-title">Additional Info</div>
+
+        <label>Gender</label>
+        <div class="option-group">
+            <input type="radio" id="m" name="g"><label for="m">Male</label>
+            <input type="radio" id="f" name="g"><label for="f">Female</label>
+            <input type="radio" id="o" name="g"><label for="o">Other</label>
+        </div>
+
+        <label>Skills</label>
+        <div class="option-group">
+            <input type="checkbox" id="c1"><label for="c1">Communication</label>
+            <input type="checkbox" id="c2"><label for="c2">Leadership</label>
+            <input type="checkbox" id="c3"><label for="c3">Coding</label>
+        </div>
+
+        <label>Joining Date</label>
+        <input type="date">
+
+        <label>Upload Resume</label>
+        <input type="file">
+
+        <label>Address</label>
+        <textarea rows="3" placeholder="Enter Address"></textarea>
+
+        <div class="btn-group">
+            <button type="reset" class="secondary">Reset</button>
+            <button type="submit" class="primary">Register</button>
+        </div>
+
+    </form>
+</div>
+
+</body>
+</html>
