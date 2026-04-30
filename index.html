@@ -2,126 +2,153 @@
 <html lang="en">
 <head>
 <meta charset="UTF-8">
-<title>Web Development Assignments</title>
-
 <style>
-    body {
-        margin: 0;
-        font-family: 'Segoe UI', sans-serif;
-        background: linear-gradient(135deg, #0f172a, #1e293b);
-        color: white;
-        text-align: center;
-    }
+  @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Space+Grotesk:wght@500;700&display=swap');
+  *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+  :root{
+    --bg:#080b14;--surface:#0e1422;--surface2:#131929;
+    --border:rgba(255,255,255,0.07);--bh:rgba(99,179,250,0.4);
+    --text:#e8edf5;--muted:#7c8fa8;
+    --a1:#38bdf8;--a2:#a855f7;
+  }
+  body{font-family:'Inter',sans-serif;background:var(--bg);color:var(--text);padding:32px 20px 48px;overflow-x:hidden;min-height:600px}
+  body::before{content:'';position:fixed;inset:0;background:radial-gradient(ellipse 80% 50% at 20% -10%,rgba(56,189,248,.07) 0%,transparent 60%),radial-gradient(ellipse 60% 40% at 80% 110%,rgba(168,85,247,.08) 0%,transparent 60%);pointer-events:none;z-index:0}
+  body::after{content:'';position:fixed;inset:0;background-image:linear-gradient(rgba(255,255,255,.015) 1px,transparent 1px),linear-gradient(90deg,rgba(255,255,255,.015) 1px,transparent 1px);background-size:60px 60px;pointer-events:none;z-index:0}
+  .wrap{position:relative;z-index:1;max-width:900px;margin:0 auto}
 
-    h1 {
-        margin-top: 30px;
-        font-size: 32px;
-        background: linear-gradient(90deg, #38bdf8, #a855f7);
-        -webkit-background-clip: text;
-        -webkit-text-fill-color: transparent;
-    }
+  .hero{text-align:center;margin-bottom:40px;animation:fu .6s ease both}
+  .badge{display:inline-flex;align-items:center;gap:7px;padding:5px 14px;border-radius:999px;border:1px solid rgba(56,189,248,.25);background:rgba(56,189,248,.06);font-size:11px;font-weight:600;color:var(--a1);letter-spacing:.08em;text-transform:uppercase;margin-bottom:20px}
+  .badge::before{content:'';width:6px;height:6px;border-radius:50%;background:var(--a1);box-shadow:0 0 8px var(--a1);animation:pulse 2s ease-in-out infinite}
+  @keyframes pulse{0%,100%{opacity:1}50%{opacity:.4}}
+  h1{font-family:'Space Grotesk',sans-serif;font-size:42px;font-weight:700;line-height:1.1;letter-spacing:-.03em;background:linear-gradient(135deg,#fff 0%,#c8dcf0 40%,var(--a1) 70%,var(--a2) 100%);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;margin-bottom:14px}
+  .sub{font-size:14px;color:var(--muted);max-width:340px;margin:0 auto 24px;line-height:1.6}
+  .chip{display:inline-flex;align-items:center;gap:10px;padding:7px 18px 7px 7px;background:var(--surface);border:1px solid var(--border);border-radius:999px}
+  .av{width:32px;height:32px;border-radius:50%;background:linear-gradient(135deg,var(--a1),var(--a2));display:flex;align-items:center;justify-content:center;font-size:12px;font-weight:700;color:#fff}
+  .pn{font-weight:600;font-size:13px}.pm{font-size:11px;color:var(--muted)}
 
-    .info {
-        color: #ccc;
-        margin-bottom: 30px;
-    }
+  .stats{display:flex;justify-content:center;gap:28px;margin:28px 0 40px;flex-wrap:wrap;animation:fu .6s .1s ease both;opacity:0}
+  .sn{font-family:'Space Grotesk',sans-serif;font-size:24px;font-weight:700;background:linear-gradient(135deg,var(--a1),var(--a2));-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text}
+  .sl{font-size:11px;color:var(--muted);text-transform:uppercase;letter-spacing:.06em;margin-top:2px;text-align:center}
+  .sd{width:1px;background:var(--border);align-self:stretch}
 
-    .container {
-        display: grid;
-        grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-        gap: 20px;
-        padding: 20px;
-        max-width: 900px;
-        margin: auto;
-    }
+  .slabel{display:flex;align-items:center;gap:10px;margin-bottom:20px;font-size:11px;font-weight:600;text-transform:uppercase;letter-spacing:.1em;color:var(--muted)}
+  .slabel::after{content:'';flex:1;height:1px;background:var(--border)}
 
-    .card {
-        background: #111827;
-        padding: 20px;
-        border-radius: 15px;
-        box-shadow: 0 10px 30px rgba(0,0,0,0.5);
-        transition: 0.3s;
-    }
+  .grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(240px,1fr));gap:14px;animation:fu .6s .2s ease both;opacity:0}
+  .card{position:relative;background:var(--surface);border:1px solid var(--border);border-radius:14px;padding:20px;text-decoration:none;color:inherit;display:block;transition:border-color .25s,transform .25s,box-shadow .25s;overflow:hidden;cursor:pointer}
+  .card::before{content:'';position:absolute;inset:0;border-radius:inherit;opacity:0;transition:opacity .3s;pointer-events:none}
+  .card:hover{border-color:var(--bh);transform:translateY(-4px);box-shadow:0 20px 60px rgba(56,189,248,.08),0 0 0 1px rgba(56,189,248,.1)}
+  .card:hover::before{opacity:1}
+  .c1::before{background:radial-gradient(ellipse at 0% 0%,rgba(56,189,248,.09),transparent 70%)}
+  .c2::before{background:radial-gradient(ellipse at 0% 0%,rgba(168,85,247,.09),transparent 70%)}
+  .c3::before{background:radial-gradient(ellipse at 0% 0%,rgba(52,211,153,.09),transparent 70%)}
+  .c4::before{background:radial-gradient(ellipse at 0% 0%,rgba(251,146,60,.09),transparent 70%)}
+  .c5::before{background:radial-gradient(ellipse at 0% 0%,rgba(248,113,113,.09),transparent 70%)}
+  .c6::before{background:radial-gradient(ellipse at 0% 0%,rgba(250,204,21,.09),transparent 70%)}
 
-    .card:hover {
-        transform: translateY(-5px);
-        box-shadow: 0 10px 30px rgba(56,189,248,0.3);
-    }
+  .ch{display:flex;align-items:flex-start;justify-content:space-between;margin-bottom:14px}
+  .ci{width:40px;height:40px;border-radius:9px;display:flex;align-items:center;justify-content:center;font-size:18px;flex-shrink:0}
+  .ci.c1{background:rgba(56,189,248,.12);box-shadow:inset 0 0 0 1px rgba(56,189,248,.2)}
+  .ci.c2{background:rgba(168,85,247,.12);box-shadow:inset 0 0 0 1px rgba(168,85,247,.2)}
+  .ci.c3{background:rgba(52,211,153,.12);box-shadow:inset 0 0 0 1px rgba(52,211,153,.2)}
+  .ci.c4{background:rgba(251,146,60,.12);box-shadow:inset 0 0 0 1px rgba(251,146,60,.2)}
+  .ci.c5{background:rgba(248,113,113,.12);box-shadow:inset 0 0 0 1px rgba(248,113,113,.2)}
+  .ci.c6{background:rgba(250,204,21,.12);box-shadow:inset 0 0 0 1px rgba(250,204,21,.2)}
+  .et{font-size:10px;font-weight:600;padding:3px 9px;border-radius:999px;background:var(--surface2);color:var(--muted);border:1px solid var(--border);letter-spacing:.04em}
+  .ct{font-family:'Space Grotesk',sans-serif;font-size:15px;font-weight:600;color:var(--text);margin-bottom:5px;line-height:1.3}
+  .cd{font-size:12px;color:var(--muted);line-height:1.5;margin-bottom:16px}
+  .cf{display:flex;align-items:center;justify-content:space-between}
+  .tech{display:flex;gap:5px;flex-wrap:wrap}
+  .pill{font-size:10px;padding:2px 7px;border-radius:4px;background:var(--surface2);color:var(--muted);border:1px solid var(--border)}
+  .arr{width:28px;height:28px;border-radius:7px;background:var(--surface2);border:1px solid var(--border);display:flex;align-items:center;justify-content:center;font-size:13px;color:var(--muted);transition:background .2s,color .2s,border-color .2s,transform .2s;flex-shrink:0}
+  .card:hover .arr{background:var(--a1);border-color:var(--a1);color:#000;transform:translate(2px,-2px)}
 
-    a {
-        text-decoration: none;
-        color: white;
-    }
+  footer{text-align:center;margin-top:48px;padding-top:24px;border-top:1px solid var(--border);font-size:12px;color:var(--muted);line-height:1.7;animation:fu .6s .3s ease both;opacity:0}
+  footer span{background:linear-gradient(90deg,var(--a1),var(--a2));-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;font-weight:600}
 
-    .btn {
-        margin-top: 10px;
-        display: inline-block;
-        padding: 8px 15px;
-        border-radius: 20px;
-        background: linear-gradient(90deg, #38bdf8, #a855f7);
-        color: white;
-        font-size: 14px;
-    }
-
+  @keyframes fu{from{opacity:0;transform:translateY(18px)}to{opacity:1;transform:translateY(0)}}
 </style>
 </head>
-
 <body>
-
-<h1>My Web Development Assignments</h1>
-<div class="info">Prakarsh Shende | Roll No: 21</div>
-
-<div class="container">
-
-    <div class="card">
-        <h3>Experiment 2</h3>
-        <p>Self Introduction</p>
-        <a href="experiment2.html" class="btn">View</a>
+<div class="wrap">
+  <header class="hero">
+    <div class="badge">Web Development Lab</div>
+    <h1>Assignment<br>Portfolio</h1>
+    <p class="sub">A collection of HTML &amp; CSS experiments exploring core concepts of the web.</p>
+    <div class="chip">
+      <div class="av">PS</div>
+      <div>
+        <div class="pn">Prakarsh Shende</div>
+        <div class="pm">Roll No. 21 · Web Dev</div>
+      </div>
     </div>
+  </header>
 
-    <div class="card">
-        <h3>Experiment 3</h3>
-        <p>Nested List</p>
-        <a href="experiment3.html" class="btn">View</a>
-    </div>
+  <div class="stats">
+    <div><div class="sn">8</div><div class="sl">Experiments</div></div>
+    <div class="sd"></div>
+    <div><div class="sn">HTML</div><div class="sl">Primary Stack</div></div>
+    <div class="sd"></div>
+    <div><div class="sn">CSS</div><div class="sl">Styling</div></div>
+  </div>
 
-    <div class="card">
-        <h3>Experiment 4</h3>
-        <p>Image Tags</p>
-        <a href="experiment4.html" class="btn">View</a>
-    </div>
+  <div class="slabel">Experiments</div>
 
-    <div class="card">
-        <h3>Experiment 5</h3>
-        <p>Links & Navigation</p>
-        <a href="experiment5.html" class="btn">View</a>
-    </div>
+  <div class="grid">
+    <a href="experiment2.html" class="card c1">
+      <div class="ch"><div class="ci c1">👤</div><span class="et">Exp 02</span></div>
+      <div class="ct">Self Introduction</div>
+      <div class="cd">Personal intro page with basic HTML structure, text formatting, and semantic elements.</div>
+      <div class="cf"><div class="tech"><span class="pill">HTML</span><span class="pill">Text</span></div><div class="arr">↗</div></div>
+    </a>
+    <a href="experiment3.html" class="card c2">
+      <div class="ch"><div class="ci c2">📋</div><span class="et">Exp 03</span></div>
+      <div class="ct">Formatting Tags</div>
+      <div class="cd">Explore how HTML formatting tags enhance text styling and improve visual presentation.</div>
+      <div class="cf"><div class="tech"><span class="pill">HTML</span><span class="pill">Lists</span></div><div class="arr">↗</div></div>
+    </a>
+    <a href="experiment4.html" class="card c3">
+      <div class="ch"><div class="ci c3">🖼️</div><span class="et">Exp 04</span></div>
+      <div class="ct">Nested List</div>
+      <div class="cd">Ordered and unordered lists with multi-level nesting for hierarchical display.</div>
+      <div class="cf"><div class="tech"><span class="pill">HTML</span><span class="pill">Images</span></div><div class="arr">↗</div></div>
+    </a>
+    <a href="experiment5.html" class="card c4">
+      <div class="ch"><div class="ci c4">🔗</div><span class="et">Exp 05</span></div>
+      <div class="ct">Image Tags</div>
+      <div class="cd">HTML image elements, alt, width, height attributes, and embedding media.</div>
+      <div class="cf"><div class="tech"><span class="pill">HTML</span><span class="pill">Anchors</span></div><div class="arr">↗</div></div>
+    </a>
+    <a href="experiment6.html" class="card c5">
+      <div class="ch"><div class="ci c5">🪟</div><span class="et">Exp 06</span></div>
+      <div class="ct">Frames &amp; Images</div>
+      <div class="cd">iFrames and image elements to embed external content in structured layouts.</div>
+      <div class="cf"><div class="tech"><span class="pill">HTML</span><span class="pill">iFrames</span></div><div class="arr">↗</div></div>
+    </a>
+    <a href="experiment7.html" class="card c6">
+      <div class="ch"><div class="ci c6">📊</div><span class="et">Exp 07</span></div>
+      <div class="ct">Links &amp; Navigation</div>
+      <div class="cd">Hyperlinks, anchor tags, internal/external linking, and navigation menus.</div>
+      <div class="cf"><div class="tech"><span class="pill">HTML</span><span class="pill">Tables</span></div><div class="arr">↗</div></div>
+    </a>
+    <a href="experiment8.html" class="card c1">
+      <div class="ch"><div class="ci c1">🗓️</div><span class="et">Exp 08</span></div>
+      <div class="ct">Time Table</div>
+      <div class="cd">Advanced HTML tables with rowspan, colspan, and cell formatting.</div>
+      <div class="cf"><div class="tech"><span class="pill">HTML</span><span class="pill">colspan</span></div><div class="arr">↗</div></div>
+    </a>
+    <a href="experiment9.html" class="card c2">
+      <div class="ch"><div class="ci c2">📝</div><span class="et">Exp 09</span></div>
+      <div class="ct">Registration Form</div>
+      <div class="cd">Complete HTML form with inputs, dropdowns, radio buttons, and checkboxes.</div>
+      <div class="cf"><div class="tech"><span class="pill">HTML</span><span class="pill">Forms</span></div><div class="arr">↗</div></div>
+    </a>
+  </div>
 
-    <div class="card">
-        <h3>Experiment 6</h3>
-        <p>Frames & Images</p>
-        <a href="experiment6.html" class="btn">View</a>
-    </div>
-
-    <div class="card">
-        <h3>Experiment 7</h3>
-        <p>Simple Table</p>
-        <a href="experiment7.html" class="btn">View</a>
-    </div>
-
-    <div class="card">
-        <h3>Experiment 8</h3>
-        <p>Time Table</p>
-        <a href="experiment8.html" class="btn">View</a>
-    </div>
-
-    <div class="card">
-        <h3>Experiment 9</h3>
-        <p>Registration Form</p>
-        <a href="experiment9.html" class="btn">View</a>
-    </div>
-
+  <footer>
+    <p>Built with <span>HTML &amp; CSS</span> &nbsp;·&nbsp; Prakarsh Shende &nbsp;·&nbsp; Roll No. 21</p>
+    <p style="margin-top:4px">Web Development Laboratory &nbsp;·&nbsp; Academic Portfolio</p>
+  </footer>
 </div>
-
 </body>
 </html>
