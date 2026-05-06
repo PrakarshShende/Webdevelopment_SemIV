@@ -1,0 +1,386 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Prakarsh Shende Resume</title>
+
+    <style>
+
+        *{
+            margin:0;
+            padding:0;
+            box-sizing:border-box;
+        }
+
+        body{
+            font-family: 'Poppins', sans-serif;
+            background: linear-gradient(135deg, #0f172a, #1e3a8a);
+            padding:40px 20px;
+        }
+
+        .resume-container{
+            max-width:1100px;
+            margin:auto;
+            background:white;
+            border-radius:25px;
+            overflow:hidden;
+            box-shadow:0 15px 40px rgba(0,0,0,0.3);
+            display:flex;
+        }
+
+        /* LEFT PANEL */
+
+        .left-panel{
+            width:35%;
+            background: linear-gradient(180deg, #111827, #2563eb);
+            color:white;
+            padding:40px 30px;
+            text-align:center;
+        }
+
+        .profile{
+            width:150px;
+            height:150px;
+            border-radius:50%;
+            border:5px solid white;
+            margin-bottom:20px;
+            object-fit:cover;
+        }
+
+        .left-panel h1{
+            font-size:34px;
+            margin-bottom:10px;
+        }
+
+        .designation{
+            font-size:17px;
+            opacity:0.9;
+            margin-bottom:30px;
+        }
+
+        .section{
+            margin-top:35px;
+            text-align:left;
+        }
+
+        .section h2{
+            font-size:22px;
+            margin-bottom:12px;
+            border-bottom:2px solid rgba(255,255,255,0.5);
+            padding-bottom:6px;
+        }
+
+        .section p,
+        .section li{
+            font-size:15px;
+            line-height:1.9;
+        }
+
+        .section ul{
+            padding-left:20px;
+        }
+
+        /* RIGHT PANEL */
+
+        .right-panel{
+            width:65%;
+            padding:50px;
+            background:#f8fafc;
+        }
+
+        .right-section{
+            margin-bottom:35px;
+        }
+
+        .right-section h2{
+            color:#2563eb;
+            font-size:28px;
+            margin-bottom:15px;
+            position:relative;
+            padding-left:18px;
+        }
+
+        .right-section h2::before{
+            content:'';
+            position:absolute;
+            left:0;
+            top:5px;
+            width:8px;
+            height:32px;
+            background:#2563eb;
+            border-radius:10px;
+        }
+
+        .right-section p,
+        .right-section li{
+            font-size:16px;
+            line-height:1.8;
+            color:#444;
+        }
+
+        .right-section ul{
+            padding-left:20px;
+        }
+
+        .card{
+            background:white;
+            padding:20px;
+            border-radius:15px;
+            margin-bottom:18px;
+            box-shadow:0 5px 15px rgba(0,0,0,0.08);
+            border-left:6px solid #2563eb;
+            transition:0.3s;
+        }
+
+        .card:hover{
+            transform:translateY(-5px);
+        }
+
+        .card h3{
+            color:#1e3a8a;
+            margin-bottom:8px;
+        }
+
+        .nav-container{
+            max-width:1100px;
+            margin:25px auto 0;
+            display:flex;
+            justify-content:space-between;
+        }
+
+        .nav-btn{
+            text-decoration:none;
+            background:#2563eb;
+            color:white;
+            padding:12px 26px;
+            border-radius:12px;
+            font-weight:bold;
+            transition:0.3s;
+        }
+
+        .nav-btn:hover{
+            background:#1d4ed8;
+            transform:scale(1.05);
+        }
+
+        @media(max-width:768px){
+
+            .resume-container{
+                flex-direction:column;
+            }
+
+            .left-panel,
+            .right-panel{
+                width:100%;
+            }
+
+            .right-panel{
+                padding:30px;
+            }
+        }
+
+    </style>
+</head>
+
+<body>
+
+    <div class="resume-container">
+
+        <!-- LEFT PANEL -->
+
+        <div class="left-panel">
+
+            <img src="https://via.placeholder.com/150"
+                 alt="Profile Photo"
+                 class="profile">
+
+            <h1>Prakarsh Shende</h1>
+
+            <p class="designation">
+                Computer Engineering Student & Web Developer
+            </p>
+
+            <!-- CONTACT -->
+
+            <div class="section">
+
+                <h2>Contact</h2>
+
+                <p>📧 prakarshshende@email.com</p>
+                <p>📱 +91 9876543210</p>
+                <p>📍 Kolhapur, Maharashtra</p>
+
+            </div>
+
+            <!-- SKILLS -->
+
+            <div class="section">
+
+                <h2>Skills</h2>
+
+                <ul>
+                    <li>HTML, CSS & JavaScript</li>
+                    <li>C & C++ Programming</li>
+                    <li>Python Basics</li>
+                    <li>Frontend Web Development</li>
+                    <li>UI/UX Designing</li>
+                </ul>
+
+            </div>
+
+            <!-- LANGUAGES -->
+
+            <div class="section">
+
+                <h2>Languages</h2>
+
+                <ul>
+                    <li>English</li>
+                    <li>Hindi</li>
+                    <li>Marathi</li>
+                </ul>
+
+            </div>
+
+            <!-- HOBBIES -->
+
+            <div class="section">
+
+                <h2>Hobbies</h2>
+
+                <ul>
+                    <li>Gaming</li>
+                    <li>Photography</li>
+                    <li>Travelling</li>
+                    <li>Exploring Technology</li>
+                </ul>
+
+            </div>
+
+        </div>
+
+        <!-- RIGHT PANEL -->
+
+        <div class="right-panel">
+
+            <!-- PROFILE -->
+
+            <div class="right-section">
+
+                <h2>Profile</h2>
+
+                <p>
+                    Passionate Computer Engineering student with strong interest
+                    in web development, UI designing, and modern technologies.
+                    Looking forward to enhancing technical skills and contributing
+                    to innovative projects.
+                </p>
+
+            </div>
+
+            <!-- EDUCATION -->
+
+            <div class="right-section">
+
+                <h2>Education</h2>
+
+                <div class="card">
+
+                    <h3>B.Tech in Computer Engineering</h3>
+
+                    <p>
+                        D. Y. Patil College of Engineering<br>
+                        2024 - 2028
+                    </p>
+
+                </div>
+
+                <div class="card">
+
+                    <h3>Higher Secondary Education</h3>
+
+                    <p>
+                        Kolhapur Junior College<br>
+                        2022 - 2024
+                    </p>
+
+                </div>
+
+            </div>
+
+            <!-- PROJECTS -->
+
+            <div class="right-section">
+
+                <h2>Projects</h2>
+
+                <div class="card">
+
+                    <h3>Instagram Analytics Dashboard</h3>
+
+                    <p>
+                        Designed a dashboard to analyze Instagram performance,
+                        engagement, followers growth, and post statistics.
+                    </p>
+
+                </div>
+
+                <div class="card">
+
+                    <h3>CampusIQ EdTech Platform</h3>
+
+                    <p>
+                        Developed an AI-powered educational platform for students
+                        with quizzes, notes, and smart learning features.
+                    </p>
+
+                </div>
+
+            </div>
+
+            <!-- ACHIEVEMENTS -->
+
+            <div class="right-section">
+
+                <h2>Achievements</h2>
+
+                <ul>
+                    <li>Participated in College Hackathons</li>
+                    <li>Completed Web Development Projects</li>
+                    <li>Created Responsive UI Designs</li>
+                </ul>
+
+            </div>
+
+            <!-- PERSONAL DETAILS -->
+
+            <div class="right-section">
+
+                <h2>Personal Details</h2>
+
+                <p><strong>Date of Birth:</strong> XX-XX-XXXX</p>
+                <p><strong>Nationality:</strong> Indian</p>
+
+            </div>
+
+        </div>
+
+    </div>
+
+    <!-- NAVIGATION BUTTONS -->
+
+    <div class="nav-container">
+
+        <a href="experiment9.html" class="nav-btn">
+            ⬅ Previous
+        </a>
+
+        <a href="assignment11/student.html" class="nav-btn">
+            Next ➜
+        </a>
+
+    </div>
+
+</body>
+</html>
